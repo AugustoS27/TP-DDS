@@ -3,16 +3,16 @@ import Navbar from 'react-bootstrap/Navbar';
 
 function Menu() {
   return (
-    <>
+    <div className='mt-5'>
       <Navbar className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href="#home">Area</Navbar.Brand>
+          <Navbar.Brand  href="#home">Area</Navbar.Brand>
         </Container>
       </Navbar>
       <br />
       <Navbar className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href="#home">Categoria</Navbar.Brand>
+          <Navbar.Brand href="/categorias">Categoria</Navbar.Brand>
         </Container>
       </Navbar>
       <br />
@@ -46,7 +46,7 @@ function Menu() {
         </Container>
       </Navbar>
       <br />
-    </>
+    </div>
   );
 }
 

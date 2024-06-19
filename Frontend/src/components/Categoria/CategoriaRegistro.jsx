@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { postCategoria } from "../../services/categorias.services";
-
+import Accordion from 'react-bootstrap/Accordion';
 
 export default function CategoriaRegistro({ actualizarCategorias }) {
     
@@ -16,10 +16,12 @@ export default function CategoriaRegistro({ actualizarCategorias }) {
     } 
 
     return (
-        <div className="container mt-5">
-          <form onSubmit={handleSubmit(onSubmit)} className="p-4 border rounded shadow-sm">
+      <Accordion defaultActiveKey="none" className="mt-3">
+      <Accordion.Item eventKey="0">
+        <Accordion.Header>Registrar Categoria</Accordion.Header>
+        <Accordion.Body>
+          <form onSubmit={handleSubmit(onSubmit)} className="shadow-sm">
             <div className="mb-3">
-              <label htmlFor="nombre" className="form-label">Nombre: </label>
               <input 
                 type="text" 
                 id="nombre" 
@@ -29,18 +31,19 @@ export default function CategoriaRegistro({ actualizarCategorias }) {
                     message: 'Nombre requerido'
                   }
                 })} 
-                className={`form-control ${errors.nombre ? 'is-invalid' : ''}`} 
+                className={`form-control ${errors.nombre ? 'is-invalid' : ''}`}
+                placeholder="Ingresar Nombre" 
               />
               {errors.nombre && <span className="text-danger">{errors.nombre.message}</span>}
             </div>
     
             <div className="mb-3">
-              <label htmlFor="descripcion" className="form-label">Descripción: </label>
               <input 
                 type="text" 
                 id="descripcion" 
                 {...register("descripcion")} 
                 className="form-control"
+                placeholder="Ingresar Descripcion"
               />
             </div>
     
@@ -51,12 +54,19 @@ export default function CategoriaRegistro({ actualizarCategorias }) {
                 {...register("activo")} 
                 className="form-check-input"
               />
-              <label htmlFor="activo" className="form-check-label">Activo: </label>
+              <label htmlFor="activo" className="form-check-label">Activo</label>
             </div>
     
             <button type="submit" className="btn btn-primary">Enviar</button>
           </form>
-        </div>
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
       );
 
 }
+
+
+
+
+

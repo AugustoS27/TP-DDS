@@ -31,5 +31,10 @@ async function buscarPorId(id){
 
 }
 
+async function actualizarCategoria(data){
+    const response = await axios.put(`http://localhost:3000/api/categorias/${data.id}`, data);
+    return response.data;
+}
 
-export {getCategorias, postCategoria, deleteCategoria, bajaLogicadeCategoria, buscarPorId };
+
+export {getCategorias, postCategoria, deleteCategoria, bajaLogicadeCategoria, buscarPorId, actualizarCategoria };

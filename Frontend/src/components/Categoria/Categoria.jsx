@@ -4,6 +4,7 @@ import Table from 'react-bootstrap/Table';
 import CategoriaRegistro from "./CategoriaRegistro.jsx";
 import { getCategorias,deleteCategoria, bajaLogicadeCategoria, buscarPorId } from "../../services/categorias.services";
 import CategoriaId from "./CategoriaId.jsx";
+import CategoriaActualizar from "./CategoriaActualizar.jsx";
 
 function Categoria() {
 
@@ -40,18 +41,19 @@ function Categoria() {
 
 
     return (
-        <>
+        <div className="categoria_contenedor">
+            <h1 className="text-center mt-4">CATEGORIAS</h1>
             <CategoriaId onSearch={buscarPorIdHandler} />
 
             {categorias.length > 0 && (
-                <Table striped bordered hover>
+                <Table striped bordered hover className="text-center align-middle container-fluid">
                     <thead>
                         <tr>
                             <th>ID</th>
                             <th>NOMBRE</th>
                             <th>DESCRIPCION</th>
                             <th>ACTIVO</th>
-                            <th>Acciones</th>
+                            <th>ACCIONES</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,11 +65,9 @@ function Categoria() {
                                     <td>{categoria.descripcion}</td>
                                     <td>{categoria.activo ? 'SI' : 'NO'}</td>
                                     <td>
-                                        <button className="btn btn-primary m-3">Editar</button>
+                                        <button className="btn btn-danger m-3 boton" onClick={() => {eliminarCategoria(categoria.idCategoria)}}>Eliminar</button>
 
-                                        <button className="btn btn-danger m-3" onClick={() => {eliminarCategoria(categoria.idCategoria)}}>Eliminar</button>
-
-                                        <button className="btn btn-warning m-3" onClick={() => { bajaLogicadeCategoria(categoria.idCategoria)
+                                        <button className="btn btn-secondary m-3 boton" onClick={() => { bajaLogicadeCategoria(categoria.idCategoria)
                                         buscarTodos() }}>Baja</button>
                                     </td>
                                 </tr>
@@ -76,8 +76,10 @@ function Categoria() {
                     </tbody>
                 </Table>
             )}
+            <CategoriaActualizar actualizarCambios={buscarTodos} />
             <CategoriaRegistro actualizarCategorias={buscarTodos} />
-        </>
+            
+        </div>
     );
 }
 

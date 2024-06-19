@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { buscarPorId } from "../../services/categorias.services.js";
+import '../../styles/categorias.css'
+
 
 export default function CategoriaId({ onSearch }) {
 
@@ -12,9 +13,8 @@ export default function CategoriaId({ onSearch }) {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <label htmlFor="buscar_id" >ID: </label>
-            <input type="text" id="buscar_id" {...register("buscar_id", {
+        <form onSubmit={handleSubmit(onSubmit)} className="busqueda-form">
+            <input className="input_buscar" placeholder="Ingresar ID" type="text" id="buscar_id" {...register("buscar_id", {
                 validate: (value) => {
                     const valor = parseInt(value);
                     if (!isNaN(valor) || value === '') {
@@ -28,5 +28,4 @@ export default function CategoriaId({ onSearch }) {
             <button type="submit" className="btn btn-primary">Buscar</button>
         </form>
     );
-
 }

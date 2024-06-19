@@ -13,8 +13,6 @@ function App() {
           <Route path='/menu' element={<Menu />}></Route>
           <Route path='/' element={<Inicio/>}></Route>
           <Route path='/categorias' element={<Categoria/>}></Route> 
-
-
         </Routes>
       </BrowserRouter>
     </>
