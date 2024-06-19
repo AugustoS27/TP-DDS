@@ -3,13 +3,14 @@ import { useForm } from "react-hook-form";
 import { postCategoria } from "../../services/categorias.services";
 
 
-export default function CategoriaRegistro() {
+export default function CategoriaRegistro({ actualizarCategorias }) {
     
     const {register, handleSubmit, formState: { errors }, reset} = useForm();
 
     const onSubmit = (data) => {
         postCategoria(data).then((respuesta) => {
             console.log(respuesta);
+            actualizarCategorias();
             reset();
         });
     } 
