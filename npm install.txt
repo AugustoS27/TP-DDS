@@ -1,0 +1,20 @@
+BACKEND
+
+npm run dev
+npm run test
+
+npm i express
+npm i nodemon -D
+npm install cors
+npm install dotenv
+npm i sqlite3 aa-sqlite sequelize
+npm install jsonwebtoken
+npm install -g jest
+npm install --save-dev supertest
+npm install supertest
+npm install swagger-ui-express
+npm install bcrypt
+
+
+
+
